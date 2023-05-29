@@ -137,8 +137,9 @@ const Admin = () => {
 
 
     const deleteProduct = (productId) => {
+     
         axios
-            .delete("/api/product/deleteProduct", productId)
+            .delete("/api/product/deleteProduct", {data:{productId: productId}})
             .then((response) => {
                 if (response.data.IsSuccess) {
                     loadListProduct();
@@ -528,7 +529,7 @@ const Admin = () => {
                         <Button colorScheme="teal" onClick={()=> {
                             mode === "add" ?insertProduct(): handleEdit()
                         }}>
-                            Thêm
+                            { mode === "add"? 'Thêm': 'Sửa'}
                         </Button>
                     </ModalFooter>
                 </ModalContent>
