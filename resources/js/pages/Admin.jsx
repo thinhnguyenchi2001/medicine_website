@@ -139,7 +139,7 @@ const Admin = () => {
     const deleteProduct = (productId) => {
      
         axios
-            .delete("/api/product/deleteProduct", {data:{productId: productId}})
+            .delete(`/api/product/deleteProduct?productId=${productId}`)
             .then((response) => {
                 if (response.data.IsSuccess) {
                     loadListProduct();
@@ -207,7 +207,7 @@ const Admin = () => {
         isUpFile && formData.append("imageAvatar", formProduct.imageAvatar);
         formData.append("listAdditionInfo", JSON.stringify(listAdditionalInfo));
         axios
-            .post("/api/product/editProduct",formData)
+            .post(`/api/product/editProduct?productId=${formProduct.productId}`,formData)
             .then((response) => {
                 if (response.data.IsSuccess) {
                     loadListProduct();
@@ -216,7 +216,7 @@ const Admin = () => {
                     setFormProduct(defaultFormProduct);
                     setListAdditionalInfo([]);
                     toast({
-                        title: "Thông báo: Thêm dược phẩm thành công!",
+                        title: "Thông báo: Sửa dược phẩm thành công!",
                         position: "top-right",
                         status: "success",
                         isClosable: true,

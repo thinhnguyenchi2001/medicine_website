@@ -94,7 +94,7 @@ class ProductController extends Controller
     public function deleteProduct(Request $request) {
         $deleteProductResponse = new ActionResponseMessage();
         try {
-            $productId = $request->productId;
+            $productId = $request->query('productId');
             DB::table('product')->where('id', $productId)->delete();
             $deleteProductResponse->setIsSuccess(true);
         } catch (\Exception $ex) {
