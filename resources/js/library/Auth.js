@@ -42,7 +42,7 @@ export function setStatusAuth(status, userLogin = null) {
     if (status != null) {
         if (status) {
             if (userLogin.IsAdmin == 1) window.location.href = "/admin";
-            else window.location.reload();
-        } else window.location.reload();
+            else window.location.href = "/";
+        } else window.location.href = "/";
     }
 }

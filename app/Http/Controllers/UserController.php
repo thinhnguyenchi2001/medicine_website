@@ -104,7 +104,7 @@ class UserController extends Controller
             $userId = $userLoginRequest['userId'];
             $userFounded = User::select('Id', 'UserName', 'FullName', 'DateOfBirth', 'PhoneNumber', 'IsAdmin')->where('Password', $password)->first();
             if ($userFounded == null) {
-                throw new \Exception("Tên đăng nhập hoặc mật khẩu không hợp lệ! Vui lòng thử lại!");
+                throw new \Exception("Mật khẩu không hợp lệ! Vui lòng thử lại!");
             } else if($userFounded && ($newPassword == $cfPassword)) {
                 User::where('Id', $userId)->update([
                     'Password'=> md5($request-> newPassword),

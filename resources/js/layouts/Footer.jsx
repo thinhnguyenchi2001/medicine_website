@@ -232,13 +232,12 @@ const Footer = () => {
                 <div className="container">
                     <div className="text-center text-gray-700">
                         <div className="text-sm">
-                            © 2007 - 2021 Công ty Cổ Phần Dược Phẩm HealPlus Số
+                            © 2021 - 2023 Công ty Cổ Phần Dược Phẩm HealPlus Số
                             ĐKKD 0315275368 cấp ngày 17/09/2018 tại Sở Kế hoạch
                             Đầu tư TPHCM
                         </div>
                         <div className="text-sm">
-                            Địa chỉ: 379-381 Hai Bà Trưng, P. Võ Thị Sáu, Q. 3,
-                            TP. Hồ Chí Minh. Số điện thoại:
+                            Địa chỉ: 234 Cao Lỗ, Uy Nỗ, Đông Anh, Hà Nội
                             <a
                                 href="tel:(028)73023456"
                                 className="text-[var(--primary-light-color)]"

@@ -107,12 +107,7 @@ const Product = () => {
                                     <p className="text-gray-700 text-base font-normal ">
                                         Thương hiệu:&nbsp;
                                     </p>
-                                    <a
-                                        href="/"
-                                        className="text-[var(--primary-medium-color)]"
-                                    >
-                                        {product.BrandName}
-                                    </a>
+                                    <div>{product.BrandName}</div>
                                 </div>
                                 <h1 className="text-[var(--primary-color)] text-[1.75rem] leading-[2.25rem] font-medium">
                                     {product.Name}
@@ -176,7 +171,7 @@ const Product = () => {
                                                 </tr>
                                             )
                                         )}
-                                       <tr className="block mb-2">
+                                        <tr className="block mb-2">
                                             <td className="inline-table border-none text-base font-medium text-gray-700">
                                                 Số lượng còn:&nbsp;
                                             </td>
@@ -231,7 +226,7 @@ const Product = () => {
                             <div className="mt-4">
                                 <div className="bg-white border border-solid border-[var(--border-color)] rounded-xl">
                                     <div className="uppercase text-gray-800 font-medium py-3 text-center shadow-[inset_0px_-1px_0px_var(--shadow-light-color)] text-[1.125rem] leading-[100%]">
-                                        Nhà thuốc Long Châu cam kết
+                                        Nhà thuốc HealPlus cam kết
                                     </div>
                                     <div className="flex justify-between flex-wrap p-3">
                                         <div className="text-center">
@@ -290,7 +285,7 @@ const Product = () => {
                                         </h4>
                                         <p>
                                             Liên hệ hotline hoặc đến nhà thuốc
-                                            Long Châu gần nhất để được tư vấn
+                                            HealPlus gần nhất để được tư vấn
                                         </p>
                                     </div>
                                 ) : (

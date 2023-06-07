@@ -55,14 +55,12 @@ const Header = () => {
     const defaultRegisterForm = {
         userName: "",
         fullName: "",
-        dateOfBirth: new Date(),
+        dateOfBirth: "",
         phoneNumber: "",
         password: "",
         rePassword: "",
     };
     const [formRegister, setFormRegister] = useState(defaultRegisterForm);
-
-    console.log(formRegister);
 
     const handleModalForm = (event, formData, setFormData) => {
         setFormData({
@@ -94,6 +92,33 @@ const Header = () => {
             })
             .catch((error) => console.log(error));
     };
+
+    const validateRegister = () => {
+        let errorMessage =''
+        if(!formRegister.rePassword) {
+            errorMessage = 'Thông báo: Bạn cần điền xác nhận mật khẩu'
+        }
+        if(!formRegister.password) {
+            errorMessage = 'Thông báo: Bạn cần điền mật khẩu'
+        }if(!formRegister.phoneNumber) {
+            errorMessage = 'Thông báo: Bạn cần điền số điện thoại'
+        }
+        if(!formRegister.dateOfBirth) {
+            errorMessage = 'Thông báo: Bạn cần điền ngày sinh'
+        }
+        if(!formRegister.fullName) {
+            errorMessage = 'Thông báo: Bạn cần điền họ và tên'
+        }
+        if(!formRegister.userName) {
+            errorMessage = 'Thông báo: Bạn cần điền tên đăng nhập'
+        }
+        !errorMessage? register(): toast({
+            title: errorMessage,
+            position: "top-right",
+            status: 'error',
+            isClosable: true,
+        });
+    }
 
     const register = () => {
         axios
@@ -291,6 +316,7 @@ const Header = () => {
                         />
                         <InputGroup className="mt-[1.125rem]">
                             <Input
+                            
                                 variant="flushed"
                                 placeholder="Nhập mật khẩu"
                                 type={showLoginPassword ? "text" : "password"}
@@ -382,6 +408,7 @@ const Header = () => {
                     <ModalCloseButton />
                     <ModalBody className="px-[5.063rem] pt-6">
                         <Input
+                        
                             variant="flushed"
                             placeholder="Nhập tên đăng nhập"
                             _focusVisible={{
@@ -402,7 +429,7 @@ const Header = () => {
                         <Input
                             className="mt-[1.125rem]"
                             variant="flushed"
-                            placeholder="Nhập tên tài khoản"
+                            placeholder="Nhập họ và tên"
                             _focusVisible={{
                                 borderColor: "var(--primary-btn-hover-color)",
                                 boxShadow:
@@ -551,7 +578,7 @@ const Header = () => {
                                     boxShadow:
                                         "0 0 0 1.6px var(--primary-light-color)",
                                 }}
-                                onClick={register}
+                                onClick={validateRegister}
                             >
                                 Đăng ký
                             </Button>

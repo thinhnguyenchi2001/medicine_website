@@ -12,6 +12,7 @@ import User from "../pages/User";
 import Admin from "../pages/Admin";
 import AdminOrder from "../pages/AdminOrder";
 import NotFound from "./NotFound";
+import { isAuth } from "../library/Auth";
 
 const AppRouter = () => {
     useEffect(() => {
@@ -24,10 +25,10 @@ const AppRouter = () => {
             <Route path="/search/:keyword" element={<Search />} />
             <Route path="/productlist/:id" element={<ProductList />} />
             <Route path="/product/:id" element={<Product />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/user" element={<User />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/admin/order" element={<AdminOrder />} />
+             <Route path="/cart" element={<Cart />} />
+             <Route path="/user" element={<User />} />
+             <Route path="/admin" element={<Admin />} />
+             <Route path="/admin/order" element={<AdminOrder />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );

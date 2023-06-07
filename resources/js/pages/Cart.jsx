@@ -571,7 +571,7 @@ const Cart = () => {
                                                 <div className="mt-4 text-sm text-[var(--hover-outline-gray)]">
                                                     Bằng cách đặt hàng, bạn đồng
                                                     ý với <br /> Điều khoản sử
-                                                    dụng của Nhà thuốc Long Châu
+                                                    dụng của Nhà thuốc HealPlus
                                                 </div>
                                             </div>
                                         </div>

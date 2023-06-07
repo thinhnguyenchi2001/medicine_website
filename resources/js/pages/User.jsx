@@ -87,6 +87,33 @@ const User = () => {
     };
 
     const editPassword = () => {
+        if (!newPass || !cfPass || !password) {
+            toast({
+                title: "Thông báo: Vui lòng điền đầy đủ thông tin đổi mật khẩu!",
+                position: "top-right",
+                status: "error",
+                isClosable: true,
+            });
+            return;
+        }
+        if (newPass !== cfPass) {
+            toast({
+                title: "Thông báo: Xác nhận mật khẩu không chính xác!",
+                position: "top-right",
+                status: "error",
+                isClosable: true,
+            });
+            return;
+        }
+        if (password === newPass) {
+            toast({
+                title: "Thông báo: Mật khẩu mới bị trùng với mật khẩu cũ!",
+                position: "top-right",
+                status: "error",
+                isClosable: true,
+            });
+            return;
+        }
         axios
             .post(`/api/user/editPassword`, {
                 userId: userLogin.Id,
@@ -94,16 +121,23 @@ const User = () => {
                 newPassword: newPass,
                 cfPassword: cfPass,
             })
-            .then(
-                (response) =>
-                    response.data.IsSuccess &&
-                    toast({
-                        title: "Thông báo: Đổi mật khẩu thành công!",
-                        position: "top-right",
-                        status: "success",
-                        isClosable: true,
-                    })
-            )
+            .then((response) => {
+                let loginResponse = response.data;
+                let titleToast = loginResponse.IsSuccess
+                    ? "Thông báo: Đăng nhập tài khoản thành công!"
+                    : `Lỗi: ${loginResponse.ErrorMessage}`;
+                let statusToast = loginResponse.IsSuccess ? "success" : "error";
+                if (loginResponse.IsSuccess) {
+                    onCloseChangePassModal()
+                }
+                toast({
+                    title: titleToast,
+                    position: "top-right",
+                    status: statusToast,
+                    isClosable: true,
+                });
+                
+            })
             .catch((error) => console.log(error));
     };
 
@@ -128,6 +162,10 @@ const User = () => {
     };
 
     const editUser = () => {
+        if (name === userLogin.FullName && date === userLogin.DateOfBirth && phone === userLogin.PhoneNumber) {
+            onCloseUserModal()
+            return;
+        }
         axios
             .post(`/api/user/editUser`, {
                 userId: userLogin.Id,

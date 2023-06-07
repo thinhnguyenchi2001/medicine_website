@@ -49,14 +49,14 @@ const Navbar = () => {
             element.classList.add("hidden");
         });
 
-        document
+        nameId && document
             .querySelector(`#${nameId}.sub-nav-item`)
             .classList.add(
                 "shadow-[inset_0_1px_0_var(--shadow-color),inset_0_-1px_0_var(--shadow-color)]",
                 "bg-[var(--secondary-color)]"
             );
 
-        document
+        nameId && document
             .querySelector(`#${nameId}.sub-nav-item .sub-nav-name`)
             .classList.add("text-[var(--primary-color)]");
 
