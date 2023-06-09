@@ -128,7 +128,7 @@ const User = () => {
                     : `Lỗi: ${loginResponse.ErrorMessage}`;
                 let statusToast = loginResponse.IsSuccess ? "success" : "error";
                 if (loginResponse.IsSuccess) {
-                    onCloseChangePassModal()
+                    onCloseChangePassModal();
                 }
                 toast({
                     title: titleToast,
@@ -136,7 +136,6 @@ const User = () => {
                     status: statusToast,
                     isClosable: true,
                 });
-                
             })
             .catch((error) => console.log(error));
     };
@@ -162,8 +161,12 @@ const User = () => {
     };
 
     const editUser = () => {
-        if (name === userLogin.FullName && date === userLogin.DateOfBirth && phone === userLogin.PhoneNumber) {
-            onCloseUserModal()
+        if (
+            name === userLogin.FullName &&
+            date === userLogin.DateOfBirth &&
+            phone === userLogin.PhoneNumber
+        ) {
+            onCloseUserModal();
             return;
         }
         axios
@@ -309,19 +312,39 @@ const User = () => {
                                                             >
                                                                 Xem
                                                             </Button>
-                                                            <Button
-                                                                leftIcon={
-                                                                    <DeleteIcon />
-                                                                }
-                                                                colorScheme="red"
-                                                                onClick={() => {
-                                                                    deleteOrder(
-                                                                        order
-                                                                    );
-                                                                }}
-                                                            >
-                                                                Huỷ
-                                                            </Button>
+                                                            {order.Status ===
+                                                            0 ? (
+                                                                <Button
+                                                                    leftIcon={
+                                                                        <DeleteIcon />
+                                                                    }
+                                                                    colorScheme="red"
+                                                                    onClick={() => {
+                                                                        deleteOrder(
+                                                                            order
+                                                                        );
+                                                                    }}
+                                                                >
+                                                                    Hủy
+                                                                </Button>
+                                                            ) : (
+                                                                <Button
+                                                                    disabled={
+                                                                        true
+                                                                    }
+                                                                    leftIcon={
+                                                                        <DeleteIcon />
+                                                                    }
+                                                                    colorScheme="red"
+                                                                    onClick={() => {
+                                                                        deleteOrder(
+                                                                            order
+                                                                        );
+                                                                    }}
+                                                                >
+                                                                    Hủy
+                                                                </Button>
+                                                            )}
                                                         </Stack>
                                                     </Td>
                                                 </Tr>
