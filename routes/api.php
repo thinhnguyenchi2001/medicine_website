@@ -41,6 +41,8 @@ Route::prefix('user')->group(function () {
     Route::post('/register', [UserController::class, 'register']);
     Route::post('/editUser', [UserController::class, 'editUser']);
     Route::post('/editPassword', [UserController::class, 'editPassword']);
+    Route::get('/getAllUser', [UserController::class, 'getAllUser']);
+
 });
 
 Route::prefix('product')->group(function () {

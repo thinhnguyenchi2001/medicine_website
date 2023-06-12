@@ -14,6 +14,7 @@ const Sidebar = ({ onClose, isDrawerDisplay }) => {
     const LinkItems = [
         { name: "Quản lý dược phẩm", icon: FiHome, path: "/admin" },
         { name: "Quản lý đơn hàng", icon: CgNotes, path: "/admin/order" },
+        { name: "Thống kê", icon: CgNotes, path: "/admin/chart" }
         // { name: "Explore", icon: FiCompass },
         // { name: "Favourites", icon: FiStar },
         // { name: "Settings", icon: FiSettings },

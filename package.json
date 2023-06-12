@@ -29,6 +29,11 @@
         "react-icons": "^4.6.0",
         "react-router-dom": "^6.4.2",
         "react-table": "^7.8.0",
-        "swiper": "^8.4.4"
+        "swiper": "^8.4.4",
+        "@mui/icons-material": "^5.4.4",
+        "react-circular-progressbar": "^2.0.4",
+        "@mui/material": "^5.4.4",
+        "recharts": "^2.1.9",
+        "sass": "^1.49.9"
     }
 }

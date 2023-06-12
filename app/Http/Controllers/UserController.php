@@ -75,6 +75,8 @@ class UserController extends Controller
         return response()->json($userResponse);
     }
 
+   
+
     public function editUser(Request $request)
     {
         $editUserResponse = new ActionResponseMessage();
@@ -116,5 +118,11 @@ class UserController extends Controller
             $loginResponse->setErrorMessage($ex->getMessage());
         }
         return response()->json($loginResponse);
+    }
+
+    
+    public function getAllUser()
+    {
+        return response()->json(User::where('IsAdmin', 0)->get());
     }
 }

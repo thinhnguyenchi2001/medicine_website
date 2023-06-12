@@ -13,6 +13,7 @@ import Admin from "../pages/Admin";
 import AdminOrder from "../pages/AdminOrder";
 import NotFound from "./NotFound";
 import { isAuth } from "../library/Auth";
+import ChartLayout from "../pages/Chart";
 
 const AppRouter = () => {
     useEffect(() => {
@@ -29,6 +30,7 @@ const AppRouter = () => {
              <Route path="/user" element={<User />} />
              <Route path="/admin" element={<Admin />} />
              <Route path="/admin/order" element={<AdminOrder />} />
+             <Route path="/admin/chart" element={<ChartLayout />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );
